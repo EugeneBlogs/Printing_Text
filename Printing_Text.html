@@ -14,7 +14,7 @@
             font-size: 40px;
         }
 
-        h1 {
+        .text {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -24,7 +24,7 @@
 </head>
 
 <body class="body">
-    <h1></h1>
+    <h1 class="text"></h1>
 
     <script>
         let bg_color = prompt("Введите HEX-код заднего фона", "000000")
@@ -36,7 +36,7 @@
         if (typeof timeout == "Number") {
             timeout *= 1000
         } else {
-            timeout = 2000
+            timeout = 2500
         }
 
         let text = []
@@ -71,7 +71,7 @@
             let interval = setTimeout(
                 () => {
                     result += text[line][count] // Добавляем новый символ к строке для вывода
-                    document.querySelector('h1').innerHTML = result + "|" // Выводим текст на экран
+                    document.querySelector(".text").innerHTML = result + "|" // Выводим текст на экран
                     count++ // Увеличиваем счётчик символов
                     // Если мы дошли до конца строки
                     if (count >= text[line].length) {
@@ -79,7 +79,7 @@
                         line++ // Переходим к новой строке
                         sleep(timeout) // Задерживаем текст на экране на 2 секунды
                         // Очищаем текст на экране и в переменной
-                        document.querySelector('h1').innerHTML = ""
+                        document.querySelector(".text").innerHTML = ""
                         result = ""
                         // Если обработали все линии
                         if (line == text.length) {
